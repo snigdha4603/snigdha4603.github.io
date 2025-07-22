@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
       title: 'Invisible Boundaries',
       description: 'Comprehensive geospatial analysis examining accessibility disparities to healthcare across socioeconomic neighborhoods in Harris County, Texas through network analysis.',
       tech: ['ArcGIS Pro', 'Python', 'Spatial Statistics'],
-      image: 'src/public/ambulance.jpg',
+      image: new URL('/ambulance.jpg', import.meta.url).href, // Corrected path
       status: 'Completed',
       category: 'Urban Planning',
       link: 'https://arcg.is/0fLenD',
@@ -17,9 +17,9 @@ const Projects: React.FC = () => {
     },
     {
       title: 'Economic Toll of Flooding',
-      description: 'Predicting Flood Risk and Economic Loss from flood in Florida using GIS and Machine Learning. Collaborative project with Shourya Dokania and Shu Yang.', 
+      description: 'Predicting Flood Risk and Economic Loss from flood in Florida using GIS and Machine Learning. Collaborative project with Shourya Dokania and Shu Yang.',
       tech: ['QGIS', 'Google Earth Engine', 'Python', 'Remote Sensing'],
-      image: 'src/public/fl_flood.jpg',
+      image: new URL('/fl_flood.jpg', import.meta.url).href, // Corrected path
       status: 'Completed',
       category: 'Climate Research',
       link: 'https://arcg.is/1nrHCf1',
@@ -29,6 +29,7 @@ const Projects: React.FC = () => {
       title: 'Predicting Urban Gentrification using Machine Learning in NYC',
       description: 'A comprehensive analysis of gentrification trends in New York City neighborhoods using machine learning techniques to identify potential hotspots and assess socio-economic impacts. Collaborative project with Deven Barth, Andrew Hwang and Yutong Wu.',
       tech: ['Python', 'Machine Learning'],
+      // This image is an external URL, so it doesn't need new URL()
       image: 'https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&w=800',
       status: 'Completed',
       category: 'Machine Learning',
@@ -39,7 +40,7 @@ const Projects: React.FC = () => {
       title: 'Assessment for Property Tax Framework: A Study of Vijayawada Municipal Corporation',
       description: 'Undergraduate dissertation on the property tax framework of Vijayawada Municipal Corporation, analyzing the existing system and proposing a machine-learning based approach.',
       tech: ['Python', 'Machine Learning', 'GIS', 'Urban Finance'],
-      image: 'src/public/snigdhathesis.png',
+      image: new URL('/snigdhathesis.png', import.meta.url).href, // Corrected path
       status: 'Completed',
       category: 'Urban Finance',
       link: 'https://drive.google.com/file/d/1GrMicaRCLhMGdchBC_VIY-EPTDUgexFh/view?usp=sharing',
@@ -49,43 +50,51 @@ const Projects: React.FC = () => {
       title: 'Impact of Crime-Induced fear on Subway Ridership in Brooklyn, NY',
       description: 'A detailed analysis of how a crime incident affected subway ridership patterns on consecutive days in New York, utilizing spatial data and statistical methods. Collaborative project with Abhishek Kumar.',
       tech: ['Python', 'Statistical Analysis'],
-      image: 'src/public/subway_fear.png',
+      image: new URL('/subway_fear.png', import.meta.url).href, // Corrected path
       status: 'Completed',
       category: 'Data Science',
       link: 'https://docs.google.com/document/d/1Ypio5FHflt_fT6Qqe_O5tUGhleSsANTiq0AjluCKoN0/edit?usp=sharing',
-      github: ''      
+      github: ''
     },
     {
       title: 'Transit or Car Oriented? Spatiotemporal Patterns in Urban Travel in U.S. Cities',
       description: 'Guided research project under Professor Anton Rozhkov, analyzing spatiotemporal patterns in urban travel across major U.S. cities using large-scale mobility data.',
       tech: ['Python', 'Statistical Analysis'],
-      image: '',
+      image: '', // No image for this one
       status: 'Ongoing',
       category: 'Transportation',
       link: '',
-      github: ''      
+      github: ''
     },
     {
       title: 'Vijayawada City-Wide Freight Transport Analysis and Emission Mitigation Strategies',
       description: 'Analyzing freight transport patterns in Vijayawada, India, and developing strategies for emission reduction and efficiency improvement.',
       tech: ['GIS', 'Data Analysis', 'Urban Planning'],
-      image: '',
+      image: '', // No image for this one
       status: 'Completed',
-      category: 'Transportation', 
+      category: 'Transportation',
       link: '',
-      github: ''      
+      github: ''
     },
     {
       title: 'GIS to Machine Learning: Application of Emerging Tools to Assess Accessible Built Environment in Indian cities',
       description: 'Research project funded by Government of India, applying GIS and machine learning to assess the accessibility of built environments in built heritage sites in India',
       tech: ['GIS', 'Data Analysis', 'Machine Learning'],
-      image: 'src/public/heritage.jpg',
+      image: new URL('/heritage.jpg', import.meta.url).href, // Corrected path
       status: 'Completed',
-      category: 'Machine Learning', 
+      category: 'Machine Learning',
       link: '',
       github: ''
     }
   ];
+
+  const handleProjectClick = (index: number) => {
+    setActiveProject(index); // Update the active project for the spotlight
+    const project = projects[index];
+    if (project.link) {
+      window.open(project.link, '_blank'); // Open the project link in a new tab
+    }
+  };
 
   return (
     <section id="projects" className="py-20 px-4 relative">
@@ -105,11 +114,13 @@ const Projects: React.FC = () => {
           <div className="glass rounded-2xl overflow-hidden hover-lift transition-all duration-500">
             <div className="grid lg:grid-cols-2">
               <div className="aspect-video lg:aspect-square bg-gradient-to-br from-purple-500/20 to-cyan-500/20 relative overflow-hidden">
-                <img
-                  src={projects[activeProject].image}
-                  alt={projects[activeProject].title}
-                  className="w-full h-full object-cover opacity-80"
-                />
+                {projects[activeProject].image && ( // Only render img if image path exists
+                  <img
+                    src={projects[activeProject].image}
+                    alt={projects[activeProject].title}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute top-6 left-6">
                   <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white">
@@ -117,7 +128,7 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-8 lg:p-12">
                 <div className="mb-4">
                   <span className="text-purple-400 text-sm font-medium">{projects[activeProject].category}</span>
@@ -125,11 +136,11 @@ const Projects: React.FC = () => {
                     {projects[activeProject].title}
                   </h3>
                 </div>
-                
+
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   {projects[activeProject].description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-8">
                   {projects[activeProject].tech.map((tech, index) => (
                     <span
@@ -158,6 +169,18 @@ const Projects: React.FC = () => {
                       Coming Soon
                     </button>
                   )}
+                  {projects[activeProject].github && ( // Only render GitHub link if it exists
+                    <a
+                      href={projects[activeProject].github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-6 py-3 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
+                      data-interactive
+                    >
+                      <Github size={16} className="mr-2" />
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -172,31 +195,33 @@ const Projects: React.FC = () => {
               className={`glass rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover-lift group ${
                 activeProject === index ? 'ring-2 ring-white/20' : ''
               }`}
-              onClick={() => setActiveProject(index)}
+              onClick={() => handleProjectClick(index)} // Updated onClick handler
               data-interactive
             >
               <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-cyan-500/20 relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
-                />
+                {project.image && ( // Only render img if image path exists
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
                 <div className="absolute top-4 left-4">
                   <span className="px-2 py-1 bg-black/50 backdrop-blur-sm rounded text-xs text-white">
                     {project.category}
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-lg font-medium text-white mb-2 group-hover:text-purple-300 transition-colors">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-gray-400 text-sm mb-4 line-clamp-2">
                   {project.description}
                 </p>
-                
+
                 <div className="flex items-center justify-between">
                   <span className={`text-xs px-2 py-1 rounded-full ${
                     project.status === 'Completed' ? 'bg-green-500/20 text-green-400' :
@@ -205,7 +230,7 @@ const Projects: React.FC = () => {
                   }`}>
                     {project.status}
                   </span>
-                  
+
                   {project.link && (
                     <ExternalLink size={16} className="text-gray-400 group-hover:text-white transition-colors" />
                   )}
