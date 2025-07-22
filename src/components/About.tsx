@@ -114,7 +114,7 @@ const About: React.FC = () => {
               Added h-full to ensure image container fills the stretched height. */}
           <div className="rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center h-full">
             <img
-              src={import.meta.env.BASE_URL + "Snigdha_Photo.jpg"}
+             src={new URL('/snigdhaphoto.png', import.meta.url).href}
               alt="Snigdha Anantharaju"
               className="w-full h-full object-cover" // Image fills its container
             />

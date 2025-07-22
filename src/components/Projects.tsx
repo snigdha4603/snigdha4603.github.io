@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
       title: 'Assessment for Property Tax Framework: A Study of Vijayawada Municipal Corporation',
       description: 'Undergraduate dissertation on the property tax framework of Vijayawada Municipal Corporation, analyzing the existing system and proposing a machine-learning based approach.',
       tech: ['Python', 'Machine Learning', 'GIS', 'Urban Finance'],
-      image: 'src/public/SNIGDHA-THESIS.png',
+      image: 'src/public/snigdhathesis.png',
       status: 'Completed',
       category: 'Urban Finance',
       link: 'https://drive.google.com/file/d/1GrMicaRCLhMGdchBC_VIY-EPTDUgexFh/view?usp=sharing',
