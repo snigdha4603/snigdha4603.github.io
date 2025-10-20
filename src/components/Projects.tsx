@@ -33,7 +33,7 @@ const Projects: React.FC = () => {
       image: 'https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&w=800',
       status: 'Completed',
       category: 'Machine Learning',
-      link: 'https://docs.google.com/document/d/1ybIQIhEdvvvu8CRTJue8jIFcMuWKPNo-i7qzDCV-_3c/edit?usp=sharing',
+      link: 'https://docs.google.com/document/d/e/2PACX-1vTRJ8hIf-2YP-SJS41rRp11Y2EIVO_vL6IquEX05NUsgh9OZjACwEAxYsJ-o7UEIXQFtvpVHVlWwptw/pub',
       github: 'https://github.com/devennb/ML-gentrification-hotspot-analysis'
     },
     {
@@ -53,14 +53,14 @@ const Projects: React.FC = () => {
       image: new URL('/subway_fear.png', import.meta.url).href, // Corrected path
       status: 'Completed',
       category: 'Data Science',
-      link: 'https://docs.google.com/document/d/1Ypio5FHflt_fT6Qqe_O5tUGhleSsANTiq0AjluCKoN0/edit?usp=sharing',
+      link: 'https://docs.google.com/document/d/e/2PACX-1vQ17LW3XRiX7cHxk8sjZpwy3j13QBkcPTwfPqg250GjvndRB7iZiKWt5fg9GVrFer2ed6JUm9GtgFd3/pub',
       github: ''
     },
     {
       title: 'Transit or Car Oriented? Spatiotemporal Patterns in Urban Travel in U.S. Cities',
       description: 'Guided research project under Professor Anton Rozhkov, analyzing spatiotemporal patterns in urban travel across major U.S. cities using large-scale mobility data.',
       tech: ['Python', 'Statistical Analysis'],
-      image: '', // No image for this one
+      image: new URL('/travel.png', import.meta.url).href, 
       status: 'Ongoing',
       category: 'Transportation',
       link: '',
@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
       title: 'Vijayawada City-Wide Freight Transport Analysis and Emission Mitigation Strategies',
       description: 'Analyzing freight transport patterns in Vijayawada, India, and developing strategies for emission reduction and efficiency improvement.',
       tech: ['GIS', 'Data Analysis', 'Urban Planning'],
-      image: '', // No image for this one
+      image: new URL('/freight.png', import.meta.url).href, 
       status: 'Completed',
       category: 'Transportation',
       link: '',

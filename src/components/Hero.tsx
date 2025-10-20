@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, MapPin, Mail } from 'lucide-react';
+import { ChevronDown, MapPin, Mail, Briefcase } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -14,11 +14,16 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Subtle animated background */}
+    <section 
+      id="hero" 
+      // Set a very dark background to enhance the glow contrast
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-950" 
+    > 
+      {/* Subtle animated background - REFINED COLORS AND LOWERED OPACITY for an ethereal, dark look */}
       <div className="absolute inset-0">
         <div 
-          className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-purple-500/10 to-cyan-500/10 blur-3xl"
+          // Deep Indigo/Cyan (Purple/Blue-Green) - Low opacity for soft glow
+          className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-indigo-900/15 to-cyan-500/15 blur-3xl opacity-80" 
           style={{
             left: mousePosition.x * 0.02 + 'px',
             top: mousePosition.y * 0.02 + 'px',
@@ -26,11 +31,21 @@ const Hero: React.FC = () => {
           }}
         />
         <div 
-          className="absolute w-64 h-64 rounded-full bg-gradient-to-r from-cyan-500/8 to-pink-500/8 blur-2xl"
+          // Emerald/Pink (Green/Magenta) - Low opacity
+          className="absolute w-64 h-64 rounded-full bg-gradient-to-r from-emerald-600/10 to-pink-600/10 blur-2xl opacity-70" 
           style={{
             right: (window.innerWidth - mousePosition.x) * 0.015 + 'px',
             bottom: (window.innerHeight - mousePosition.y) * 0.015 + 'px',
             transition: 'all 0.4s ease'
+          }}
+        />
+         <div 
+          // Dark Blue/Purple accent - Lowest opacity for subtle depth
+           className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-blue-700/10 to-purple-800/10 blur-3xl opacity-60" 
+          style={{
+            left: (window.innerWidth / 2 + mousePosition.x * 0.01) + 'px',
+            top: (window.innerHeight / 2 - mousePosition.y * 0.01) + 'px',
+            transition: 'all 0.5s ease'
           }}
         />
       </div>
@@ -64,6 +79,10 @@ const Hero: React.FC = () => {
           <div className="flex items-center">
             <Mail size={16} className="mr-2" />
             <span>Graduate Student, New York University</span>
+          </div>
+          <div className="flex items-center">
+            <Briefcase size={16} className="mr-2" /> 
+            <span>Transportation Fellow, NYCDOT</span>
           </div>
         </div>
 

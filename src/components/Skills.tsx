@@ -5,11 +5,11 @@ const Skills: React.FC = () => {
   const skillLines = [
     {
       direction: 'left-to-right',
-      skills: ['Urban Data Science', 'GIS Analysis', 'Python Programming', 'Spatial Statistics', 'ArcGIS Pro', 'QGIS', 'PostGIS', 'Remote Sensing', 'Cartography', 'Geospatial Research']
+      skills: ['Urban Data Science', 'GIS Analysis', 'Python', 'Spatial Statistics', 'ArcGIS Pro', 'QGIS', 'PostGIS', 'Remote Sensing', 'Cartography', 'Geospatial Research']
     },
     {
-      direction: 'right-to-left', 
-      skills: ['Machine Learning', 'Climate Resilience', 'Infrastructure Planning', 'Data Visualization', 'Tableau', 'R Programming', 'SQL', 'Statistical Modeling', 'Policy Analysis', 'Urban Analytics']
+      direction: 'right-to-left',
+      skills: ['Machine Learning', 'Climate Resilience', 'Infrastructure Planning', 'Data Visualization', 'Tableau', 'SQL', 'Statistical Modeling', 'Policy Analysis', 'Urban Analytics']
     },
     {
       direction: 'left-to-right',
@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
     {
       icon: <Database size={24} />,
       title: 'Data Science & Analytics',
-      skills: ['Python', 'R', 'SQL', 'Machine Learning', 'Statistical Analysis', 'Jupyter'],
+      skills: ['Python', 'SQL', 'Machine Learning', 'Statistical Analysis', 'Jupyter'],
       color: 'from-cyan-500/20 to-pink-500/20'
     },
     {
@@ -73,7 +73,7 @@ const Skills: React.FC = () => {
         <div className="space-y-6 mb-20">
           {skillLines.map((line, lineIndex) => (
             <div key={lineIndex} className="overflow-hidden">
-              <div 
+              <div
                 className={`whitespace-nowrap skill-scroll-${line.direction}`}
                 style={{ animationDuration: '80s' }}
               >
@@ -124,8 +124,8 @@ const Skills: React.FC = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {[
-              'Spatial Analysis', 'Urban Planning', 'Data Science', 'Climate Research',
-              'Infrastructure Equity', 'Policy Analysis', 'Machine Learning', 'Geospatial Technology'
+              'Spatial Statistics', 'Urban Data Science', 'Climate Research', 'Infrastructure Equity',
+              'GeoAI', 'Machine Learning', 'Geospatial Technology', 'Urban Planning'
             ].map((competency, index) => (
               <span
                 key={index}

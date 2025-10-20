@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import NewsletterForm from './NewsletterForm';
 
 const Contact: React.FC = () => {
   return (
@@ -110,11 +111,10 @@ const Contact: React.FC = () => {
             </a>
           </div>
         </div>
-
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-gray-800">
           <p className="text-gray-500 text-sm">
-            © 2025 Snigdha Anantharaju. Designed with passion for urban innovation.
+            © 2025 Snigdha Anantharaju. All rights reserved.
           </p>
         </div>
       </div>

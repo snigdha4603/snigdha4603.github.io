@@ -12,7 +12,7 @@ const About: React.FC = () => {
     { number: '3', label: 'Teaching/Mentoring Roles' },
     { number: '8+', label: 'Projects Completed' },
     { number: '4', label: 'Research Areas' },
-    { number: '3+', label: 'Leadership Roles' } // This is now correctly part of the array
+    { number: '4+', label: 'Leadership Roles' } // UPDATED: Changed from '3+' to '4+' to reflect the new ASPRS role
   ];
 
   // Data for the education timeline
@@ -33,6 +33,13 @@ const About: React.FC = () => {
 
   // Data for the professional experience timeline
   const experience = [
+    // NEW ROLE ADDED: 9/11 Memorial Fellow - Placed at the top as the most recent/significant role
+    {
+      title: "9/11 Memorial Fellow",
+      organization: "NY Metropolitan Transportation Council and NYC Department of Transportation",
+      duration: "Oct 2025 – Present",
+      link: "https://www.nymtc.org/en-us/News-and-Events#2025scholars:~:text=Scholars%20Announced%20for%20NYMTC%E2%80%99s%202025%2D26%209%2D11%20Memorial%20Fellowship%20Program" // Hyperlink added
+    },
     {
       title: "GIS Student Specialist",
       organization: "NYU Data Services",
@@ -57,10 +64,19 @@ const About: React.FC = () => {
 
   // Data for the leadership experience timeline
   const leadershipExperience = [
+    // NEW ROLE ADDED: ASPRS Founding President - Placed second for chronological/priority flow
+    {
+      title: "Founding President",
+      organization: "American Society for Photogrammetry and Remote Sensing NYU Student Chapter",
+      duration: "Sept 2025 – Present",
+      link: "https://community.asprs.org/chapter-nyu/home#:~:text=Add%20Event-,Meet%20the%20Leadership,-Snigdha%20Anantharaju" // Hyperlink added
+    },
+    // Hyperlink added to existing AUSA President role
     {
       title: "President",
       organization: "Applied Urban Science Association (AUSA), NYU Tandon",
-      duration: "May 2025 – Present"
+      duration: "May 2025 – Present",
+      link: "https://www.linkedin.com/feed/update/urn:li:activity:7366892066720595969/"
     },
     {
       title: "Club Secretary",
@@ -114,7 +130,7 @@ const About: React.FC = () => {
               Added h-full to ensure image container fills the stretched height. */}
           <div className="rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center h-full">
             <img
-             src={new URL('/snigdhaphoto.png', import.meta.url).href}
+              src={new URL('/snigdhaphoto.png', import.meta.url).href}
               alt="Snigdha Anantharaju"
               className="w-full h-full object-cover" // Image fills its container
             />
@@ -130,11 +146,16 @@ const About: React.FC = () => {
               </p>
               <p>
                 What drives me is the intersection of data and real-world impact. I use spatial analysis and machine learning
-                to tackle urban challenges – from transportation equity to climate vulnerabilities and renewable energy infrastructure.
+                to tackle urban challenges – from transportation equity to climate vulnerabilities and renewable energy infrastructure. 
+                That is where I find my passion as I was one of the six 9/11 Memorial Fellows selected for 2025-26 to work on 
+                transportation challenges in New York by the New York Metropolitan Transportation Council (NYMTC). 
+                I work with NYC Department of Transportation on Vision Zero.
               </p>
               <p>
-                Beyond academics, I lead the Applied Urban Science Association as President, help the broader NYU research community at NYU Data Services as a GIS Consultant,
-                and work with the CUSP Education Team to make urban science more accessible.
+                Beyond academics, I lead the Applied Urban Science Association and the American Society 
+                for Photogrammetry and Remote Sensing - NYU Student Chapter as President, help the broader 
+                NYU research community at NYU Data Services as a GIS Consultant, and work with the CUSP 
+                Education Team to make urban science more accessible.
               </p>
               <p>
                 I love food and I love New York. So, when I'm not working, I am probably trying to find my next favorite place to eat.
@@ -177,7 +198,7 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Leadership Experience Section - Swapped with Experience */}
+            {/* Leadership Experience Section */}
             <div className="glass p-8 rounded-2xl hover-lift transition-all duration-300">
               <div className="flex items-center mb-6">
                 <Award className="text-yellow-400 mr-3" size={24} />
@@ -186,7 +207,20 @@ const About: React.FC = () => {
               <div className="space-y-4">
                 {leadershipExperience.map((item, index) => (
                   <div key={index} className="border-l-2 border-yellow-400/30 pl-6">
-                    <h4 className="text-white font-medium text-lg mb-1">{item.title}</h4> {/* Consistent font size: text-lg */}
+                    {/* Conditional link for leadership items */}
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-medium text-lg hover:text-yellow-300 transition-colors duration-200 block mb-1" // Title text-lg with hover
+                        data-interactive
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <h4 className="text-white font-medium text-lg mb-1">{item.title}</h4> // Title text-lg
+                    )}
                     <p className="text-gray-300 text-sm mb-1">{item.organization}</p> {/* Consistent font size: text-sm */}
                     <p className="text-gray-500 text-xs">{item.duration}</p> {/* Consistent font size: text-xs */}
                   </div>
@@ -197,7 +231,7 @@ const About: React.FC = () => {
 
           {/* Right Column: Experience & Resume */}
           <div className="space-y-8">
-            {/* Experience Section - Swapped with Leadership Experience */}
+            {/* Experience Section */}
             <div className="glass p-8 rounded-2xl hover-lift transition-all duration-300">
               <div className="flex items-center mb-6">
                 <Briefcase className="text-cyan-400 mr-3" size={24} />
@@ -206,7 +240,20 @@ const About: React.FC = () => {
               <div className="space-y-4">
                 {experience.map((exp, index) => (
                   <div key={index} className="border-l-2 border-cyan-400/30 pl-6">
-                    <h4 className="text-white font-medium text-lg mb-1">{exp.title}</h4> {/* Consistent font size: text-lg */}
+                    {/* Conditional link for experience items */}
+                    {exp.link ? (
+                      <a
+                        href={exp.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-medium text-lg hover:text-cyan-300 transition-colors duration-200 block mb-1" // Title text-lg with hover
+                        data-interactive
+                      >
+                        {exp.title}
+                      </a>
+                    ) : (
+                      <h4 className="text-white font-medium text-lg mb-1">{exp.title}</h4> // Consistent font size: text-lg
+                    )}
                     <p className="text-gray-300 text-sm mb-1">{exp.organization}</p> {/* Consistent font size: text-sm */}
                     <p className="text-gray-500 text-xs">{exp.duration}</p> {/* Consistent font size: text-xs */}
                   </div>
@@ -214,10 +261,10 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Resume Download Section - Removed glass box */}
+            {/* Resume Download Section */}
             <div className="pt-0"> {/* Removed glass styling and adjusted padding */}
               <a
-                href="/master_resume.pdf"
+                href={new URL('/Snigdha_Resume_July22.pdf', import.meta.url).href}
                 download="Snigdha_Anantharaju_Resume.pdf"
                 className="flex items-center justify-center w-full px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-all duration-300"
                 data-interactive

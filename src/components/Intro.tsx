@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Briefcase } from 'lucide-react';
+import { Award, Users, Briefcase, Zap } from 'lucide-react'; // Added Zap for the new role
 
 const Intro: React.FC = () => {
   return (
@@ -19,30 +19,75 @@ const Intro: React.FC = () => {
               resilient, and sustainable urban systems.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 my-8">
+            {/* UPDATED: Changing to a responsive 2x2 grid (md:grid-cols-2) to accommodate more key roles */}
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-6 my-8"> 
+              
+              {/* 1. 9/11 Memorial Fellow - New Role */}
+              <a 
+                href="https://www.nymtc.org/en-us/News-and-Events#2025scholars:~:text=Scholars%20Announced%20for%20NYMTC%E2%80%99s%202025%2D26%209%2D11%20Memorial%20Fellowship%20Program" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-300"
+                data-interactive
+              >
+                <Award className="mx-auto mb-2 text-yellow-400" size={32} />
+                <h3 className="font-semibold text-white mb-1">9/11 Memorial Fellow</h3>
+                <p className="text-sm text-gray-400">NYMTC & NYC DOT</p>
+              </a>
+
+              {/* 2. CUSP Graduate Assistant - Existing Role */}
               <div className="text-center p-4 rounded-lg bg-white/5">
-                <Briefcase className="mx-auto mb-2 text-white" size={32} />
+                <Briefcase className="mx-auto mb-2 text-cyan-400" size={32} />
                 <h3 className="font-semibold text-white mb-1">Graduate Assistant</h3>
                 <p className="text-sm text-gray-400">CUSP Education Team</p>
               </div>
-              <div className="text-center p-4 rounded-lg bg-white/5">
-                <Award className="mx-auto mb-2 text-white" size={32} />
-                <h3 className="font-semibold text-white mb-1">GIS Specialist</h3>
-                <p className="text-sm text-gray-400">NYU Data Services</p>
-              </div>
-              <div className="text-center p-4 rounded-lg bg-white/5">
-                <Users className="mx-auto mb-2 text-white" size={32} />
+
+              {/* 3. AUSA President - Hyperlinked */}
+              <a 
+                href="https://www.linkedin.com/feed/update/urn:li:activity:7366892066720595969/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-300"
+                data-interactive
+              >
+                <Users className="mx-auto mb-2 text-purple-400" size={32} />
                 <h3 className="font-semibold text-white mb-1">President</h3>
                 <p className="text-sm text-gray-400">AUSA at NYU Tandon</p>
-              </div>
+              </a>
+
+              {/* 4. ASPRS Founding President - New Role */}
+              <a 
+                href="https://community.asprs.org/chapter-nyu/home#:~:text=Add%20Event-,Meet%20the%20Leadership,-Snigdha%20Anantharaju" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-300"
+                data-interactive
+              >
+                <Zap className="mx-auto mb-2 text-red-400" size={32} />
+                <h3 className="font-semibold text-white mb-1">Founding President</h3>
+                <p className="text-sm text-gray-400">ASPRS NYU Student Chapter</p>
+              </a>
+              
             </div>
 
             <p>
-              Currently, I work as a Graduate Assistant with the CUSP Education Team, supporting programming, 
-              outreach, and student engagement. I also serve as the GIS Student Specialist at NYU Data Services, 
+              I am currently a **9/11 Memorial Fellow** (Oct 2025–Present) with the NY Metropolitan Transportation Council and NYC Department of Transportation, focusing on critical regional transportation planning.
+              I also work as a Graduate Assistant with the CUSP Education Team, supporting programming, 
+              outreach, and student engagement, and serve as the GIS Student Specialist at NYU Data Services, 
               where I assist students and faculty with spatial analysis, map design, and geospatial research. 
-              Beyond the classroom, I'm the President of the Applied Urban Science Association (AUSA) at NYU Tandon, 
-              helping foster a community around urban tech and data.
+              Beyond the classroom, I'm the <a 
+                href="https://www.linkedin.com/feed/update/urn:li:activity:7366892066720595969/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="iridescent-text font-medium hover:underline"
+              >President of the Applied Urban Science Association (AUSA)</a> at NYU Tandon, 
+              and the <a 
+                href="https://community.asprs.org/chapter-nyu/home#:~:text=Add%20Event-,Meet%20the%20Leadership,-Snigdha%20Anantharaju" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="iridescent-text font-medium hover:underline"
+              >Founding President of the ASPRS NYU Student Chapter</a> (Sept 2025–Present),
+              helping foster a community around urban tech, remote sensing, and data.
             </p>
 
             <p>

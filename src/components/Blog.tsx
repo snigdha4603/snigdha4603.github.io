@@ -1,66 +1,40 @@
 import React, { useState } from 'react';
-import { Download } from 'lucide-react';
 
 const Blog: React.FC = () => {
   // State for managing the email input field
   const [email, setEmail] = useState('');
-  // State for managing the loading status of the subscription
-  const [loading, setLoading] = useState(false);
-  // State for displaying messages to the user (e.g., success, error)
   const [message, setMessage] = useState('');
-  // State to track if the subscription was successful
-  const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  // IMPORTANT: This is the Web app URL you copied from Google Apps Script deployment!
-  const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzx267eEPZr5_i8DllDtI6ALxjrwc_r8gJaHQWHKAUHAfcTmUueWbbDthvZu_EWn_eqbA/exec';
-
-  // Function to handle the subscription form submission
-  const handleSubscribe = async () => {
-    // Basic email validation
+  // Function to handle the Getform.io subscription form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!email || !email.includes('@')) {
       setMessage('Please enter a valid email address.');
       return;
     }
-
-    setLoading(true); // Set loading to true while the request is in progress
-    setMessage(''); // Clear any previous messages
-
+    setLoading(true);
+    setMessage('');
     try {
-      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('_gotcha', ''); // Honeypot field
+      const res = await fetch('https://getform.io/f/bronvyxa', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email }),
-        // Important for Google Apps Script: redirect 'follow' is often needed
-        redirect: 'follow'
+        body: formData,
       });
-
-      // Google Apps Script usually returns text, not always JSON directly
-      const textResponse = await response.text();
-      let data;
-      try {
-        data = JSON.parse(textResponse);
-      } catch (parseError) {
-        console.error("Failed to parse JSON response:", textResponse, parseError);
-        setMessage('Subscription failed: Invalid response from server.');
-        return;
-      }
-
-      if (response.ok && data.success) { // Check if the HTTP status is OK and backend indicates success
+      if (res.ok) {
+        setSuccess(true);
         setMessage('Successfully subscribed! Thank you.');
-        setSubscribed(true); // Mark as subscribed
-        setEmail(''); // Clear the email input field
+        setEmail('');
       } else {
-        // Handle specific error messages from the backend, or a generic one
-        setMessage(data.message || 'Subscription failed. Please try again.');
+        setMessage('Subscription failed. Please try again.');
       }
-
-    } catch (error) {
-      console.error('Subscription error:', error);
+    } catch {
       setMessage('An unexpected error occurred. Please try again later.');
     } finally {
-      setLoading(false); // Set loading to false once the request is complete
+      setLoading(false);
     }
   };
 
@@ -77,36 +51,38 @@ const Blog: React.FC = () => {
           </p>
         </div>
 
-        {/* Newsletter Signup remains for future updates */}
+        {/* Newsletter Signup with Getform.io */}
         <div className="mt-16">
           <div className="glass p-8 rounded-2xl text-center">
             <h3 className="text-2xl font-light text-white mb-4">Stay Updated</h3>
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               Get notified when I publish new insights on urban data science, spatial analysis, and city planning
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto items-center justify-center">
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
-                value={email} // Bind input value to state
-                onChange={(e) => setEmail(e.target.value)} // Update state on change
+                value={email}
+                onChange={e => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
-                disabled={loading || subscribed} // Disable input while loading or if already subscribed
+                disabled={loading || success}
+                required
               />
+              {/* Honeypot input to prevent spams */}
+              <input type="hidden" name="_gotcha" style={{ display: 'none' }} />
               <button
-                onClick={handleSubscribe} // Call handleSubscribe on click
+                type="submit"
                 className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 data-interactive
-                disabled={loading || subscribed} // Disable button while loading or if already subscribed
+                disabled={loading || success}
               >
-                {loading ? 'Subscribing...' : subscribed ? 'Subscribed!' : 'Subscribe'}
+                {loading ? 'Subscribing...' : success ? 'Subscribed!' : 'Subscribe'}
               </button>
-            </div>
+            </form>
             {/* Display messages to the user */}
             {message && (
-              <p className={`mt-4 text-sm ${subscribed ? 'text-green-400' : 'text-red-400'}`}>
-                {message}
-              </p>
+              <p className={`mt-4 text-sm ${success ? 'text-green-400' : 'text-red-400'}`}>{message}</p>
             )}
           </div>
         </div>
