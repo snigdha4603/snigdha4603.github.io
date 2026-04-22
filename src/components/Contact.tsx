@@ -1,125 +1,98 @@
-import React from 'react';
-import { Mail, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
-import NewsletterForm from './NewsletterForm';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { personalInfo } from '../data';
 
-const Contact: React.FC = () => {
+export function Contact() {
   return (
-    <section id="contact" className="py-20 px-4 relative">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-light mb-6">
-            Let's <span className="iridescent-text font-medium">Connect</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
-            I'm always excited to discuss urban data science, spatial analysis, and opportunities 
-            to create more sustainable and equitable cities.
+    <section id="contact" style={{ background: '#060606', borderTop: '1px solid #1a1a1a' }}>
+      <div className="max-w-7xl mx-auto px-8 py-28">
+        <div className="max-w-2xl">
+          <p
+            className="text-xl tracking-widest uppercase mb-8"
+            style={{ color: '#c41e3a', letterSpacing: '0.2em' }}
+          >
+            Contact me
           </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {/* Contact Info */}
-          <div className="glass p-8 rounded-2xl hover-lift transition-all duration-500">
-            <h3 className="text-2xl font-light text-white mb-6">Get In Touch</h3>
-            
-            <div className="space-y-6">
-              <a
-                href="mailto:snigdha.anantharaju@nyu.edu"
-                className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-all duration-300"
-                data-interactive
-              >
-                <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="text-purple-400" size={20} />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium">Email</h4>
-                  <p className="text-gray-400 text-sm">snigdha.anantharaju@nyu.edu</p>
-                </div>
-                <ArrowUpRight className="text-gray-400 group-hover:text-white transition-colors ml-auto" size={16} />
-              </a>
+          <h2
+            className="font-serif mb-6 leading-tight"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#e2e2e2', fontWeight: 400 }}
+          >
+            Let's build something
+            <br />
+            <span style={{ color: '#8b1a1a', fontStyle: 'italic' }}>meaningful</span> together.
+          </h2>
 
-              <div className="flex items-center space-x-4 p-4">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/20 to-pink-500/20">
-                  <MapPin className="text-cyan-400" size={20} />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium">Location</h4>
-                  <p className="text-gray-400 text-sm">New York City, NY</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p
+            className="mb-12 leading-relaxed"
+            style={{ color: '#666', fontSize: '1rem', fontWeight: 300 }}
+          >
+            I'm currently open to roles and conversations about transportation urban data science. Don't hesitate to reach out.
+          </p>
 
-          {/* Social Links */}
-          <div className="glass p-8 rounded-2xl hover-lift transition-all duration-500">
-            <h3 className="text-2xl font-light text-white mb-6">Follow My Work</h3>
-            
-            <div className="space-y-4">
-              <a
-                href="https://www.linkedin.com/in/snigdha-anantharaju/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 hover:bg-white/5 rounded-lg transition-all duration-300 group"
-                data-interactive
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-lg bg-blue-500/20">
-                    <Linkedin className="text-blue-400" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">LinkedIn</h4>
-                    <p className="text-gray-400 text-sm">Professional updates</p>
-                  </div>
-                </div>
-                <ArrowUpRight className="text-gray-400 group-hover:text-white transition-colors" size={16} />
-              </a>
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="inline-block text-sm tracking-widest uppercase px-8 py-4 mb-12 transition-all duration-200"
+            style={{
+              background: '#8b1a1a',
+              color: '#fff',
+              letterSpacing: '0.18em',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#a01e1e')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = '#8b1a1a')}
+          >
+            {personalInfo.email}
+          </a>
 
-              <a
-                href="#"
-                className="flex items-center justify-between p-4 hover:bg-white/5 rounded-lg transition-all duration-300 group"
-                data-interactive
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-lg bg-gray-500/20">
-                    <Github className="text-gray-400" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">GitHub</h4>
-                    <p className="text-gray-400 text-sm">Code repositories</p>
-                  </div>
-                </div>
-                <ArrowUpRight className="text-gray-400 group-hover:text-white transition-colors" size={16} />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <div className="glass p-8 rounded-2xl">
-            <h3 className="text-2xl font-light text-white mb-4">Ready to collaborate?</h3>
-            <p className="text-gray-400 mb-6">
-              Whether you're interested in research collaboration, consulting, or just want to discuss urban tech
-            </p>
+          <div className="flex items-center gap-8" style={{ borderTop: '1px solid #1a1a1a', paddingTop: '2rem' }}>
             <a
-              href="mailto:snigdha.anantharaju@nyu.edu"
-              className="inline-flex items-center px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-all duration-300 hover-lift"
-              data-interactive
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs tracking-widest uppercase transition-colors duration-200"
+              style={{ color: '#555', letterSpacing: '0.12em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#555')}
             >
-              Start a conversation
-              <ArrowUpRight size={16} className="ml-2" />
+              <Github size={15} />
+              GitHub
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs tracking-widest uppercase transition-colors duration-200"
+              style={{ color: '#555', letterSpacing: '0.12em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#555')}
+            >
+              <Linkedin size={15} />
+              LinkedIn
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="flex items-center gap-2 text-xs tracking-widest uppercase transition-colors duration-200"
+              style={{ color: '#555', letterSpacing: '0.12em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#555')}
+            >
+              <Mail size={15} />
+              Email
             </a>
           </div>
         </div>
-        {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-gray-800">
-          <p className="text-gray-500 text-sm">
-            © 2025 Snigdha Anantharaju. All rights reserved.
-          </p>
-        </div>
+      </div>
+
+      <div
+        className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between flex-wrap gap-4"
+        style={{ borderTop: '1px solid #1a1a1a' }}
+      >
+        <p style={{ color: '#333', fontSize: '0.75rem', letterSpacing: '0.08em' }}>
+          © {new Date().getFullYear()} Snigdha Anantharaju
+        </p>
+        <p style={{ color: '#333', fontSize: '0.75rem', letterSpacing: '0.08em' }}>
+          New York, NY
+        </p>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

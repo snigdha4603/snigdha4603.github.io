@@ -1,121 +1,125 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronDown, MapPin, Mail, Briefcase } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { CityNetwork } from './CityNetwork';
+import { personalInfo } from '../data';
 
-const Hero: React.FC = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
+export function Hero() {
   return (
-    <section 
-      id="hero" 
-      // Set a very dark background to enhance the glow contrast
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-950" 
-    > 
-      {/* Subtle animated background - REFINED COLORS AND LOWERED OPACITY for an ethereal, dark look */}
+    <section className="relative w-full h-screen overflow-hidden" style={{ background: '#080808' }}>
+      {/* Three.js background */}
       <div className="absolute inset-0">
-        <div 
-          // Deep Indigo/Cyan (Purple/Blue-Green) - Low opacity for soft glow
-          className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-indigo-900/15 to-cyan-500/15 blur-3xl opacity-80" 
-          style={{
-            left: mousePosition.x * 0.02 + 'px',
-            top: mousePosition.y * 0.02 + 'px',
-            transition: 'all 0.3s ease'
-          }}
-        />
-        <div 
-          // Emerald/Pink (Green/Magenta) - Low opacity
-          className="absolute w-64 h-64 rounded-full bg-gradient-to-r from-emerald-600/10 to-pink-600/10 blur-2xl opacity-70" 
-          style={{
-            right: (window.innerWidth - mousePosition.x) * 0.015 + 'px',
-            bottom: (window.innerHeight - mousePosition.y) * 0.015 + 'px',
-            transition: 'all 0.4s ease'
-          }}
-        />
-         <div 
-          // Dark Blue/Purple accent - Lowest opacity for subtle depth
-           className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-blue-700/10 to-purple-800/10 blur-3xl opacity-60" 
-          style={{
-            left: (window.innerWidth / 2 + mousePosition.x * 0.01) + 'px',
-            top: (window.innerHeight / 2 - mousePosition.y * 0.01) + 'px',
-            transition: 'all 0.5s ease'
-          }}
-        />
+        <CityNetwork />
       </div>
 
-      <div className="text-center z-10 px-4 max-w-5xl mx-auto">
-        {/* Status indicator */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="flex items-center glass px-4 py-2 rounded-full">
-            <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
-            <span className="text-sm text-gray-300">Open to opportunities</span>
-          </div>
-        </div>
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(105deg, rgba(8,8,8,0.98) 30%, rgba(8,8,8,0.55) 65%, rgba(8,8,8,0.15) 100%)',
+        }}
+      />
 
-        {/* Main heading */}
-        <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-light mb-6 leading-tight">
-            <span className="text-white">Hi, I'm </span>
-            <span className="iridescent-text font-medium">Snigdha</span>
+      {/* Content */}
+      <div className="relative z-10 h-full max-w-7xl mx-auto px-8 flex flex-col justify-center">
+        <div className="max-w-2xl">
+          <p
+            className="text-s tracking-widest uppercase mb-6"
+            style={{ color: '#c41e3a', letterSpacing: '0.2em' }}
+          >
+            Transportation, GIS and Urban Data Science
+          </p>
+
+          <h1
+            className="font-serif mb-6 leading-none"
+            style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: '#ececec', fontWeight: 400 }}
+          >
+            Snigdha
+            <br />
+            <span style={{ color: '#c41e3a', fontStyle: 'italic' }}>Anantharaju</span>
           </h1>
-          <div className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-            I use maps and models to tell stories that move cities forward.
-          </div>
-        </div>
 
-        {/* Quick info */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12 text-gray-400">
-          <div className="flex items-center">
-            <MapPin size={16} className="mr-2" />
-            <span>New York City</span>
-          </div>
-          <div className="flex items-center">
-            <Mail size={16} className="mr-2" />
-            <span>Graduate Student, New York University</span>
-          </div>
-          <div className="flex items-center">
-            <Briefcase size={16} className="mr-2" /> 
-            <span>Transportation Fellow, NYCDOT</span>
-          </div>
-        </div>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-          <a
-            href="#projects"
-            className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-all duration-300 hover-lift"
-            data-interactive
+          <p
+            className="mb-10 leading-relaxed"
+            style={{ color: '#b0b0b0', fontSize: '1.1rem', fontWeight: 300, maxWidth: '36rem' }}
           >
-            See My Work
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-4 border border-white/30 text-white rounded-full font-medium hover:bg-white/10 transition-all duration-300 hover-lift"
-            data-interactive
-          >
-            Let's Connect
-          </a>
-        </div>
+            {personalInfo.tagline}
+          </p>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center animate-bounce">
-            <span className="text-xs text-gray-400 mb-2">Scroll to explore</span>
-            <a href="#about">
-              <ChevronDown className="text-gray-400" size={24} />
+          <div className="flex items-center gap-6 flex-wrap">
+            <a
+              href="#projects"
+              className="text-xs tracking-widest uppercase px-6 py-3 transition-all duration-200"
+              style={{
+                background: '#8b1a1a',
+                color: '#fff',
+                letterSpacing: '0.16em',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#a01e1e')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#8b1a1a')}
+            >
+              View Work
             </a>
+            <a
+              href="#about"
+              className="text-xs tracking-widest uppercase px-6 py-3 transition-all duration-200"
+              style={{
+                color: '#b0b0b0',
+                border: '1px solid #2a2a2a',
+                letterSpacing: '0.16em',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f0f0f0';
+                e.currentTarget.style.borderColor = '#555';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#b0b0b0';
+                e.currentTarget.style.borderColor = '#2a2a2a';
+              }}
+            >
+              About Me
+            </a>
+
+            <div className="flex items-center gap-4 ml-2">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-200"
+                style={{ color: '#666' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#666')}
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-200"
+                style={{ color: '#666' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#666')}
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="transition-colors duration-200"
+                style={{ color: '#666' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#c41e3a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#666')}
+              >
+                <Mail size={18} />
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <ArrowDown size={16} style={{ color: '#666' }} />
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

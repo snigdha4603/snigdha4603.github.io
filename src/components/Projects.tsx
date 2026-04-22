@@ -1,247 +1,126 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { projects } from '../data';
+import { useState } from 'react';
 
-const Projects: React.FC = () => {
-  const [activeProject, setActiveProject] = useState(0);
+const categories = ['All', 'Transportation', 'Machine Learning', 'Climate Research', 'Data Science', 'Urban Simulation', 'Urban Finance'];
 
-  const projects = [
-    {
-      title: 'Invisible Boundaries',
-      description: 'Comprehensive geospatial analysis examining accessibility disparities to healthcare across socioeconomic neighborhoods in Harris County, Texas through network analysis.',
-      tech: ['ArcGIS Pro', 'Python', 'Spatial Statistics'],
-      image: new URL('/ambulance.jpg', import.meta.url).href, // Corrected path
-      status: 'Completed',
-      category: 'Urban Planning',
-      link: 'https://arcg.is/0fLenD',
-      github: ''
-    },
-    {
-      title: 'Economic Toll of Flooding',
-      description: 'Predicting Flood Risk and Economic Loss from flood in Florida using GIS and Machine Learning. Collaborative project with Shourya Dokania and Shu Yang.',
-      tech: ['QGIS', 'Google Earth Engine', 'Python', 'Remote Sensing'],
-      image: new URL('/fl_flood.jpg', import.meta.url).href, // Corrected path
-      status: 'Completed',
-      category: 'Climate Research',
-      link: 'https://arcg.is/1nrHCf1',
-      github: ''
-    },
-    {
-      title: 'Predicting Urban Gentrification using Machine Learning in NYC',
-      description: 'A comprehensive analysis of gentrification trends in New York City neighborhoods using machine learning techniques to identify potential hotspots and assess socio-economic impacts. Collaborative project with Deven Barth, Andrew Hwang and Yutong Wu.',
-      tech: ['Python', 'Machine Learning'],
-      // This image is an external URL, so it doesn't need new URL()
-      image: 'https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&w=800',
-      status: 'Completed',
-      category: 'Machine Learning',
-      link: 'https://docs.google.com/document/d/e/2PACX-1vTRJ8hIf-2YP-SJS41rRp11Y2EIVO_vL6IquEX05NUsgh9OZjACwEAxYsJ-o7UEIXQFtvpVHVlWwptw/pub',
-      github: 'https://github.com/devennb/ML-gentrification-hotspot-analysis'
-    },
-    {
-      title: 'Assessment for Property Tax Framework: A Study of Vijayawada Municipal Corporation',
-      description: 'Undergraduate dissertation on the property tax framework of Vijayawada Municipal Corporation, analyzing the existing system and proposing a machine-learning based approach.',
-      tech: ['Python', 'Machine Learning', 'GIS', 'Urban Finance'],
-      image: new URL('/snigdhathesis.png', import.meta.url).href, // Corrected path
-      status: 'Completed',
-      category: 'Urban Finance',
-      link: 'https://drive.google.com/file/d/1GrMicaRCLhMGdchBC_VIY-EPTDUgexFh/view?usp=sharing',
-      github: ''
-    },
-    {
-      title: 'Impact of Crime-Induced fear on Subway Ridership in Brooklyn, NY',
-      description: 'A detailed analysis of how a crime incident affected subway ridership patterns on consecutive days in New York, utilizing spatial data and statistical methods. Collaborative project with Abhishek Kumar.',
-      tech: ['Python', 'Statistical Analysis'],
-      image: new URL('/subway_fear.png', import.meta.url).href, // Corrected path
-      status: 'Completed',
-      category: 'Data Science',
-      link: 'https://docs.google.com/document/d/e/2PACX-1vQ17LW3XRiX7cHxk8sjZpwy3j13QBkcPTwfPqg250GjvndRB7iZiKWt5fg9GVrFer2ed6JUm9GtgFd3/pub',
-      github: ''
-    },
-    {
-      title: 'Transit or Car Oriented? Spatiotemporal Patterns in Urban Travel in U.S. Cities',
-      description: 'Guided research project under Professor Anton Rozhkov, analyzing spatiotemporal patterns in urban travel across major U.S. cities using large-scale mobility data.',
-      tech: ['Python', 'Statistical Analysis'],
-      image: new URL('/travel.png', import.meta.url).href, 
-      status: 'Ongoing',
-      category: 'Transportation',
-      link: '',
-      github: ''
-    },
-    {
-      title: 'Vijayawada City-Wide Freight Transport Analysis and Emission Mitigation Strategies',
-      description: 'Analyzing freight transport patterns in Vijayawada, India, and developing strategies for emission reduction and efficiency improvement.',
-      tech: ['GIS', 'Data Analysis', 'Urban Planning'],
-      image: new URL('/freight.png', import.meta.url).href, 
-      status: 'Completed',
-      category: 'Transportation',
-      link: '',
-      github: ''
-    },
-    {
-      title: 'GIS to Machine Learning: Application of Emerging Tools to Assess Accessible Built Environment in Indian cities',
-      description: 'Research project funded by Government of India, applying GIS and machine learning to assess the accessibility of built environments in built heritage sites in India',
-      tech: ['GIS', 'Data Analysis', 'Machine Learning'],
-      image: new URL('/heritage.jpg', import.meta.url).href, // Corrected path
-      status: 'Completed',
-      category: 'Machine Learning',
-      link: '',
-      github: ''
-    }
-  ];
+export function Projects() {
+  const [active, setActive] = useState('All');
 
-  const handleProjectClick = (index: number) => {
-    setActiveProject(index); // Update the active project for the spotlight
-    const project = projects[index];
-    if (project.link) {
-      window.open(project.link, '_blank'); // Open the project link in a new tab
-    }
-  };
+  const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-light mb-4">
-            Featured <span className="iridescent-text font-medium">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto text-lg">
-            Here are some of my individual as well as collaborative projects. P.S. Grateful to everyone who helped me along the way.
+    <section id="projects" style={{ background: '#080808', borderTop: '1px solid #1a1a1a' }}>
+      <div className="max-w-7xl mx-auto px-8 py-28">
+        <div className="flex items-end justify-between mb-12 flex-wrap gap-6">
+          <p
+            className="text-xl tracking-widest uppercase"
+            style={{ color: '#c41e3a', letterSpacing: '0.2em' }}
+          >
+            Projects
           </p>
-        </div>
-
-        {/* Featured Project */}
-        <div className="mb-16">
-          <div className="glass rounded-2xl overflow-hidden hover-lift transition-all duration-500">
-            <div className="grid lg:grid-cols-2">
-              <div className="aspect-video lg:aspect-square bg-gradient-to-br from-purple-500/20 to-cyan-500/20 relative overflow-hidden">
-                {projects[activeProject].image && ( // Only render img if image path exists
-                  <img
-                    src={projects[activeProject].image}
-                    alt={projects[activeProject].title}
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute top-6 left-6">
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white">
-                    Featured Project
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-8 lg:p-12">
-                <div className="mb-4">
-                  <span className="text-purple-400 text-sm font-medium">{projects[activeProject].category}</span>
-                  <h3 className="text-3xl font-light text-white mt-2 mb-4">
-                    {projects[activeProject].title}
-                  </h3>
-                </div>
-
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  {projects[activeProject].description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {projects[activeProject].tech.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  {projects[activeProject].link ? (
-                    <a
-                      href={projects[activeProject].link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-all duration-300"
-                      data-interactive
-                    >
-                      View Project
-                      <ArrowUpRight size={16} className="ml-2" />
-                    </a>
-                  ) : (
-                    <button className="flex items-center px-6 py-3 bg-white/10 text-white rounded-lg font-medium">
-                      Coming Soon
-                    </button>
-                  )}
-                  {projects[activeProject].github && ( // Only render GitHub link if it exists
-                    <a
-                      href={projects[activeProject].github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-6 py-3 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
-                      data-interactive
-                    >
-                      <Github size={16} className="mr-2" />
-                      GitHub
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className="text-xs tracking-widest uppercase px-3 py-1.5 transition-all duration-200"
+                style={{
+                  letterSpacing: '0.12em',
+                  color: active === cat ? '#fff' : '#555',
+                  background: active === cat ? '#8b1a1a' : 'transparent',
+                  border: `1px solid ${active === cat ? '#8b1a1a' : '#2a2a2a'}`,
+                }}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`glass rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover-lift group ${
-                activeProject === index ? 'ring-2 ring-white/20' : ''
-              }`}
-              onClick={() => handleProjectClick(index)} // Updated onClick handler
-              data-interactive
-            >
-              <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-cyan-500/20 relative overflow-hidden">
-                {project.image && ( // Only render img if image path exists
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
-                  />
-                )}
-                <div className="absolute top-4 left-4">
-                  <span className="px-2 py-1 bg-black/50 backdrop-blur-sm rounded text-xs text-white">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-white mb-2 group-hover:text-purple-300 transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <span className={`text-xs px-2 py-1 rounded-full ${
-                    project.status === 'Completed' ? 'bg-green-500/20 text-green-400' :
-                    project.status === 'In Development' ? 'bg-yellow-500/20 text-yellow-400' :
-                    'bg-purple-500/20 text-purple-400'
-                  }`}>
-                    {project.status}
-                  </span>
-
-                  {project.link && (
-                    <ExternalLink size={16} className="text-gray-400 group-hover:text-white transition-colors" />
-                  )}
-                </div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+          {filtered.map((project, i) => (
+            <ProjectCard key={i} {...project} />
           ))}
         </div>
       </div>
     </section>
   );
-};
+}
 
-export default Projects;
+function ProjectCard({
+  title,
+  description,
+  tags,
+  category,
+  link,
+}: {
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  link: string | null;
+}) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="relative p-8 transition-all duration-300 cursor-default"
+      style={{
+        border: '1px solid #1a1a1a',
+        marginTop: '-1px',
+        marginLeft: '-1px',
+        background: hovered ? '#0d0d0d' : 'transparent',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="flex items-start justify-between mb-4">
+        <span
+          className="text-xs tracking-widest uppercase"
+          style={{ color: '#c41e3a', letterSpacing: '0.14em', fontSize: '0.65rem' }}
+        >
+          {category}
+        </span>
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200 shrink-0"
+            style={{ color: hovered ? '#c41e3a' : '#333' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ArrowUpRight size={16} />
+          </a>
+        )}
+      </div>
+
+      <h3
+        className="font-serif mb-3 leading-snug"
+        style={{ color: '#d0d0d0', fontSize: '1.05rem', fontWeight: 400 }}
+      >
+        {title}
+      </h3>
+
+      <p
+        className="mb-6 leading-relaxed"
+        style={{ color: '#555', fontSize: '0.85rem', fontWeight: 300 }}
+      >
+        {description}
+      </p>
+
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs px-2 py-1"
+            style={{ color: '#444', border: '1px solid #1e1e1e', letterSpacing: '0.04em' }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}

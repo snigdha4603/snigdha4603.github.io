@@ -14,7 +14,7 @@ const Intro: React.FC = () => {
           <div className="space-y-6 text-gray-300 leading-relaxed">
             <p className="text-lg">
               I'm <span className="iridescent-text font-semibold">Snigdha Anantharaju</span> (she/her), 
-              a graduate student in Applied Urban Science and Informatics at NYU's Center for Urban Science and Progress (CUSP). 
+              a graduate student in Urban Data Science at NYU's Center for Urban Science and Progress (CUSP). 
               I'm passionate about how cities move, grow, and evolve and how data can help us build more equitable, 
               resilient, and sustainable urban systems.
             </p>
