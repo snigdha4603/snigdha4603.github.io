@@ -40,7 +40,7 @@ export function CityNetwork() {
     const pointMat = new THREE.PointsMaterial({
       color: 0x8b1a1a,
       size: 0.7,
-      transparent: true,
+      transparent: false,
       opacity: 0.95
       ,
     });
@@ -61,7 +61,7 @@ export function CityNetwork() {
     edgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(edgePositions, 3));
     const edgeMat = new THREE.LineBasicMaterial({
       color: 0x3a0d0d,
-      transparent: true,
+      transparent: false,
       opacity: 0.8,
     });
     const edges = new THREE.LineSegments(edgeGeo, edgeMat);

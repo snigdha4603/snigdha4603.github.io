@@ -261,6 +261,11 @@ export const skills = [
 ];
 
 export const awards = [
+    {
+    title: 'Best Data-Informed Insight Capstone Award',
+    org: 'NYU Center for Urban Science + Progress',
+    year: '2026',
+  },
   {
     title: 'Community Building and Leadership Award',
     org: 'NYU Tandon School of Engineering',
@@ -295,5 +300,135 @@ export const awards = [
     title: '25th NOSPLAN Convention - First Place in Current Practices for Climate Change Mitigation',
     org: 'National Institute of Urban Affairs, India',
     year: '2023',
+  },
+];
+
+export interface NewsEntry {
+  date: string;
+  month: string;
+  year: string;
+  headline: string;
+  body: string;
+  link: string | null;
+  tag: string;
+}
+
+export const news: NewsEntry[] = [
+  {
+    date: 'May 2025',
+    month: 'May',
+    year: '2025',
+    headline: 'Elected President of the Applied Urban Science Association at NYU Tandon',
+    body: 'Elected as President of AUSA (Applied Urban Science Association) at NYU Tandon School of Engineering. Under this role, I lead the club with 250+ members and direct 4 E-board members.I have led the launch of several flagship initiatives including Wisdom Wednesday (a faculty interview series), Metro Mondays (an urban facts social media series), and the AUSA Career Series - growing the organization from zero social media presence to an active community, and guiding AUSA off probationary status. I also increased participation by 50% and number of events by 150% with an increase in budget by 270% compared to the previous year. ',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7366892066720595969',
+    tag: 'Leadership',
+  },
+  {
+    date: 'August 2025',
+    month: 'August',
+    year: '2025',
+    headline: 'Instructed at 2025 Foundations of Research Computing Camp at New York University',
+    body: 'Led a workshop with 40+ attendees on how to use and present geospatial data effectively at the 2025 Foundations of Research Computing Camp at NYU, an intensive 3 day-long program designed to equip students with essential research computing skills. The workshop covered best practices for geospatial data visualization, storytelling with maps, and effective communication of spatial insights to both technical and non-technical audiences.',
+    link: 'https://sites.google.com/nyu.edu/forc-camp/instructors?authuser=0#h.xdjzamlkrdmh',
+    tag: 'Event',
+  },
+  {
+    date: 'Sept 2025',
+    month: 'Sept',
+    year: '2025',
+    headline: 'Chartered the ASPRS NYU Student Chapter - First in the North Atlantic Region',
+    body: 'Founded and chartered the American Society for Photogrammetry and Remote Sensing (ASPRS) NYU Student Chapter - making it the first ASPRS student chapter in the entire North Atlantic Region. ASPRS is the premier professional association for those who work with geospatial information in photogrammetry, remote sensing, GIS, and related disciplines. The chapter aims to connect NYU students with cutting-edge geospatial research, industry professionals, and opportunities in the field.',
+    link: 'https://community.asprs.org/chapter-nyu/home',
+    tag: 'Leadership',
+  },
+  {
+    date: 'Oct 2025',
+    month: 'Oct',
+    year: '2025',
+    headline: 'Selected for the NYMTC September 11 Memorial Transportation Fellowship',
+    body: 'Selected as one of only six graduate students across New York and New Jersey for the New York Metropolitan Transportation Council (NYMTC) September 11 Memorial Transportation Fellowship. The fellowship - established to honor the memory of transportation professionals lost on 9/11 - funds graduate students to work on pressing transportation challenges facing the New York region. Through this fellowship, I work with the NYC Department of Transportation on Vision Zero Street Improvement Projects, synthesizing crash data and developing evidence-based interventions for high-crash corridors.',
+    link: 'https://www.nymtc.org/Portals/0/Pdf/PRESS%20RELEASES/2026/Council%20Meeting%202026%20Press%20Release%20-%20ASL.pdf?ver=BLjP8Ok_ui2HI6lxA914kw%3d%3d',
+    tag: 'Fellowship',
+  },
+  {
+    date: 'Nov 2025',
+    month: 'Nov',
+    year: '2025',
+    headline: 'Won the NYU GIS Day Mapping Competition - Out of 30+ Entries',
+    body: 'Placed first in NYU\'s annual GIS Day Mapping Competition, a university-wide contest with over 30 entries from students across disciplines. GIS Day is a global celebration of Geographic Information Systems and their real-world applications. The competition recognizes outstanding spatial analysis, cartographic design, and storytelling through maps.',
+    link: 'https://drive.google.com/drive/folders/163AZZtzJpD70IRFBxZJwRQMeOi8XyRSn?usp=sharing',
+    tag: 'Award',
+  },
+  {
+    date: 'Dec 2025',
+    month: 'Dec',
+    year: '2025',
+    headline: 'Hosted and Emceed the ASPRS NYU Chapter Launch and Technical Showcase',
+    body: 'Hosted and emceed the inaugural event of the ASPRS NYU Student Chapter - the Chapter Launch and Technical Showcase. The event brought together students, faculty, and industry professionals to celebrate the chapter\'s founding and showcase the breadth of geospatial work happening at NYU, setting the tone for the chapter\'s future programming.',
+    link: 'https://www.linkedin.com/posts/asprs-nyu-chapter_asprsnyu-asprs-nyu-activity-7399822622420795393-bJ8x',
+    tag: 'Event',
+  },
+  {
+    date: 'Jan 2026',
+    month: 'Jan',
+    year: '2026',
+    headline: 'Represented NYU CUSP and Tandon at the 105th TRB Annual Meeting in Washington D.C.',
+    body: 'Represented the NYU Center for Urban Science + Progress (CUSP) and NYU Tandon School of Engineering at the Transportation Research Board (TRB) Annual Meeting in Washington D.C. - one of the largest transportation research conferences in the world, drawing over 13,000 attendees. Engaged with cutting-edge transportation research and connected with professionals advancing the field.',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7416214563760521216/',
+    tag: 'Conference',
+  },
+  {
+    date: 'Jan 2026',
+    month: 'Jan',
+    year: '2026',
+    headline: 'Represented AUSA at NYU Tandon Club Fair - Grew Membership and Urban Science Awareness',
+    body: 'Tabled and represented the Applied Urban Science Association at the NYU Tandon Club Fair, actively recruiting new members and raising awareness about the field of urban data science among incoming and current students. A key step in expanding AUSA\'s reach across the school.',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7422068547817824256',
+    tag: 'Outreach',
+  },
+  {
+    date: 'Mar 11 2026',
+    month: 'Mar',
+    year: '2026',
+    headline: "Moderated 'Women in Urban' Panel 1 - Arts, Community Development & Urban Planning",
+    body: "Hosted and moderated the first panel of the AUSA Career Series: 'Women in Urban' - a discussion on the intersection of arts, community development, and urban planning. Panelists included Gesche Würfel (Visual Artist, Educator & Urbanist), Giulia Luci (Director of Sustainability, NYC Department of Housing Preservation and Development), Keri Butler (President, Municipal Art Society of New York), and Véronëque Ignace (Community Engagement Manager, NYC FloodNet).",
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7437883620452790272',
+    tag: 'Event',
+  },
+  {
+    date: 'Mar 26 2026',
+    month: 'Mar',
+    year: '2026',
+    headline: "Moderated 'Women in Urban' Panel 2 - Diverse Disciplines and AI in Urban Science",
+    body: "Hosted and moderated the second 'Women in Urban' panel, exploring the diversity of disciplines under the urban umbrella and the growing role of AI in urban science. Panelists included Becky Duane (Business Development Executive, IBM), Jennifer Pehr AICP MPH WEDG (Urban Strategist & Planner), Jill Lerner (Principal at KPF and Co-chair of the Municipal Art Society of New York), and Kara Emery Ph.D. (Director of Research, AI Hub at NYU McSilver Institute).",
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7443317212347695105',
+    tag: 'Event',
+  },
+  {
+    date: 'Apr 2026',
+    month: 'Apr',
+    year: '2026',
+    headline: "Hosted Code4City - A 12-Hour Urban Tech Hackathon in Partnership with Qualcomm",
+    body: "Organized Code4City, a 12-hour urban-themed hackathon running on April 26, 2026 in partnership with Qualcomm. The event invites students and developers to build technology solutions for real city challenges, embodying AUSA's mission to bridge data science and urban impact.",
+    link: 'https://code4city.com',
+    tag: 'Event',
+  },
+  {
+    date: 'Apr 2026',
+    month: 'Apr',
+    year: '2026',
+    headline: "Received 'Outstanding New Initiative' Award from NYU Tandon",
+    body: "Received the 'Outstanding New Initiative' award from NYU Tandon School of Engineering in recognition of the successful launch and impact of AUSA Career Series and its flagship programs like Code4City, Wisdom Wednesday, Metro Mondays and Women in Urban.",
+    link: '',
+    tag: 'Award',
+  },
+  {
+    date: 'May 1 2026',
+    month: 'May',
+    year: '2026',
+    headline: "Received 'Best Data-Informed Capstone' Award",
+    body: "Received the 'Best Data-Informed Capstone' award from the NYU Center for Urban Science + Progress for our capstone project, which applied computer vision and creating our own video labeling software to analyze and propose solutions for pedestrian safety at right-turn intersections. The award recognizes outstanding use of data (where we collected our own data) to generate insights and inform actionable recommendations for cities.",
+    link: '',
+    tag: 'Award',
   },
 ];

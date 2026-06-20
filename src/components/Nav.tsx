@@ -9,6 +9,7 @@ const links = [
   { label: 'Skills', href: '#skills' },
   { label: 'Awards', href: '#awards' },
   { label: 'Projects', href: '#projects' },
+  { label: 'News', href: '#news' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -25,6 +26,7 @@ export function Nav() {
 
   return (
     <nav
+      aria-label="Primary navigation"
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: scrolled ? 'rgba(8,8,8,0.97)' : 'transparent',
@@ -33,7 +35,7 @@ export function Nav() {
     >
       <div className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
         <a
-          href="#"
+          href="#top"
           className="font-serif text-sm tracking-widest uppercase"
           style={{ color: '#c41e3a', letterSpacing: '0.18em' }}
         >

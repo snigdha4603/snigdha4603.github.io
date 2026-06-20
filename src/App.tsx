@@ -7,22 +7,25 @@ import { Leadership } from './components/Leadership';
 import { Skills } from './components/Skills';
 import { Awards } from './components/Awards';
 import { Projects } from './components/Projects';
+import { NewsUpdates } from './components/NewsUpdates';
 import { Contact } from './components/Contact';
 
 function App() {
   return (
-    <div style={{ background: '#080808', minHeight: '100vh' }}>
+    <div id="top" style={{ background: '#080808', minHeight: '100vh' }}>
       <Nav />
-      <Hero />
-      <About />
-      <Education />
-      <Experience />
-      <Leadership />
-      <Skills />
-      <Awards />
-      <Projects />
-
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Education />
+        <Experience />
+        <Leadership />
+        <Skills />
+        <Awards />
+        <Projects />
+        <NewsUpdates />
+        <Contact />
+      </main>
     </div>
   );
 }
