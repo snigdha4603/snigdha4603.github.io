@@ -21,9 +21,9 @@ function App() {
         <Experience />
         <Leadership />
         <Skills />
-        <Awards />
-        <Projects />
         <NewsUpdates />
+        <Projects />
+        <Awards />
         <Contact />
       </main>
     </div>
