@@ -33,17 +33,7 @@ export interface TimelineEntry {
 }
 
 export const experience: TimelineEntry[] = [
-  {
-    title: 'Graduate Research Assistant - Inclusivity in GIS Curriculum (funded by NYU Office of the Provost)',
-    org: 'NYU Center for Urban Science + Progress',
-    location: 'Brooklyn, NY',
-    duration: 'Apr 2026 - Present',
-    link: null,
-    description: [
-      'Research on making GIS education more accessible and inclusive across disciplines at NYU.',
-    ],
-  },
-  {
+    {
     title: 'NYMTC 9/11 Memorial Transportation Research Fellow',
     org: 'NY Metropolitan Transportation Council & NYC Department of Transportation',
     location: 'New York, NY',
@@ -56,10 +46,20 @@ export const experience: TimelineEntry[] = [
     ],
   },
   {
+    title: 'Graduate Research Assistant - Inclusivity in GIS Curriculum (funded by NYU Office of the Provost)',
+    org: 'NYU Center for Urban Science + Progress',
+    location: 'Brooklyn, NY',
+    duration: 'Apr 2026 - May 2026',
+    link: null,
+    description: [
+      'Research on making GIS education more accessible and inclusive across disciplines at NYU.',
+    ],
+  },
+  {
     title: 'Graduate Research Assistant - Computer Vision & Transportation',
     org: 'SimSpace Lab, NYU Tandon School of Engineering',
     location: 'Brooklyn, NY',
-    duration: 'Sept 2025 - Present',
+    duration: 'Sept 2025 - May 2026',
     link: null,
     description: [
       'Build a hybrid spatial-kinematic pipeline combining Line-of-Sight (LOS) analysis with 2,000-scenario Monte Carlo simulations to assess accident avoidability.',
@@ -71,7 +71,7 @@ export const experience: TimelineEntry[] = [
     title: 'Data Science and GIS Consultant',
     org: 'New York University Data Services',
     location: 'New York, NY',
-    duration: 'May 2025 - Present',
+    duration: 'May 2025 - May 2026',
     link: null,
     description: [
       "Serve as the university's embedded GIS expert, advising 1,000+ students, faculty and researchers across disciplines on spatial analytics, data strategy, and visualization using ArcGIS Pro, Python, R, and QGIS.",
@@ -82,7 +82,7 @@ export const experience: TimelineEntry[] = [
     title: 'CUSP Education Team Graduate Assistant',
     org: 'Center for Urban Science and Progress, NYU',
     location: 'Brooklyn, NY',
-    duration: 'Nov 2024 - Present',
+    duration: 'Nov 2024 - May 2026',
     link: null,
     description: [
       'Curate and maintain a comprehensive catalog of 100+ data sources from past CUSP research and capstone projects to support future student and faculty work.',
@@ -94,7 +94,7 @@ export const experience: TimelineEntry[] = [
     title: 'Data Science and Machine Learning Intern',
     org: 'School of Planning and Architecture, Bhopal',
     location: 'Bhopal, India',
-    duration: 'May 2023 - July 2023',
+    duration: 'June 2023 - July 2023',
     link: null,
     description: [
       'Extracted and analyzed 5,000+ accessibility-related data points using Machine Learning (NLP - BERT and VADER) to evaluate inclusivity.',
@@ -427,7 +427,7 @@ export const news: NewsEntry[] = [
     year: '2026',
     headline: "Received 'Outstanding New Initiative' Award from NYU Tandon",
     body: "Received the 'Outstanding New Initiative' award from NYU Tandon School of Engineering in recognition of the successful launch and impact of AUSA Career Series and its flagship programs like Code4City, Wisdom Wednesday, Metro Mondays and Women in Urban.",
-    link: '',
+    link: 'https://www.linkedin.com/posts/cuspausa_tandonstudentengagement-nyurandon-nyu-activity-7462853601598586880-vPnN?utm_source=share&utm_medium=member_desktop&rcm=ACoAADOZooUBH2v8HuA4LZbTO3ZwgLharuGJHmE',
     tag: 'Award',
   },
   {
@@ -436,6 +436,15 @@ export const news: NewsEntry[] = [
     year: '2026',
     headline: "Received 'Best Data-Informed Capstone' Award",
     body: "Received the 'Best Data-Informed Capstone' award from the NYU Center for Urban Science + Progress for our capstone project, which applied computer vision and creating our own video labeling software to analyze and propose solutions for pedestrian safety at right-turn intersections. The award recognizes outstanding use of data (where we collected our own data) to generate insights and inform actionable recommendations for cities.",
+    link: '',
+    tag: 'Award',
+  },
+  {
+    date: 'May 2026',
+    month: 'May',
+    year: '2026',
+    headline: "Received Community Building and Leadership Award from NYU Tandon",
+    body: "Received the 'Community Building and Leadership' award from the NYU Tandon School of Engineering for our contributions to fostering a collaborative and inclusive environment in urban science and technology.",
     link: '',
     tag: 'Award',
   },
