@@ -5,11 +5,11 @@ const links = [
   { label: 'About', href: '#about' },
   { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
+  { label: 'News', href: '#news' },
   { label: 'Leadership', href: '#leadership' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Awards', href: '#awards' },
   { label: 'Projects', href: '#projects' },
-  { label: 'News', href: '#news' },
+  { label: 'Awards', href: '#awards' },
   { label: 'Contact', href: '#contact' },
 ];
 
