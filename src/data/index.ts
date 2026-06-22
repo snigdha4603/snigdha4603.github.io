@@ -163,6 +163,14 @@ export const education = [
 ];
 
 export const projects = [
+    {
+    title: 'MTA Metro North Hudson Line Climate Resilience',
+    description:
+      'Built an ETL pipeline for Metro-North’s 70-mile Hudson Line integrating NOAA, USGS, and NWS APIs and developed XGBoost flood risk scoring, Random Forest disruption classification, and Weibull AFT survival analysis',
+    tags: ['Python', 'GIS', 'Machine Learning'],
+    category: 'Machine Learning',
+    link: 'https://github.com/snigdha4603/hudson_line_project',
+  },
   {
     title: 'Forensic Geosimulation: Road Accident Boundaries',
     description:
