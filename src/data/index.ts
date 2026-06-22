@@ -436,7 +436,7 @@ export const news: NewsEntry[] = [
     year: '2026',
     headline: "Received 'Best Data-Informed Capstone' Award",
     body: "Received the 'Best Data-Informed Capstone' award from the NYU Center for Urban Science + Progress for our capstone project, which applied computer vision and creating our own video labeling software to analyze and propose solutions for pedestrian safety at right-turn intersections. The award recognizes outstanding use of data (where we collected our own data) to generate insights and inform actionable recommendations for cities.",
-    link: '',
+    link: 'https://www.linkedin.com/posts/nyu-center-for-urban-science-progress_pedestrian-safety-computervision-activity-7461403408093200384-FQwO?utm_source=share&utm_medium=member_desktop&rcm=ACoAADOZooUBH2v8HuA4LZbTO3ZwgLharuGJHmE',
     tag: 'Award',
   },
   {
